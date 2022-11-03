@@ -54,7 +54,7 @@ export default function Home() {
             <Image src={iconCheckImage} alt=""/>
               <div className='flex flex-col'>
                 <span className='font-bold text-2xl'>+2.034</span>
-                <span>Bolões criados</span>
+                <span>palpites enviados</span>
               </div>
             </div>
           </div>
