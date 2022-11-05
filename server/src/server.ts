@@ -1,5 +1,8 @@
 import Fastify from 'fastify'
 import cors from '@fastify/cors'
+import jwt from '@fastify/jwt'
+import * as dotenv from 'dotenv';
+import 'dotenv/config';
 import { pollRoutes } from './routes/poll'
 import { userRoutes } from './routes/user'
 import { guessRoutes } from './routes/guess'
@@ -9,12 +12,19 @@ import { authRoutes } from './routes/auth'
 
 
 async function bootstrap() {
+
+    dotenv.config()
+
     const fastify = Fastify({
         logger: true,
     })
 
     await fastify.register(cors, {
         origin: true,
+    })
+
+    await fastify.register(jwt, {
+        secret: process.env.SECRET_KEY
     })
 
     await fastify.register(pollRoutes)
@@ -31,3 +41,5 @@ await fastify.listen({ port: 3333, host: '0.0.0.0'})
 }
 
 bootstrap()
+
+
