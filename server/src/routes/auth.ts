@@ -18,9 +18,6 @@ export async function authRoutes(fastify: FastifyInstance){
 
         const { access_token } = createUserBody.parse(request.body)
 
-
-        
-
         const userResponse = await api.get('/oauth2/v2/userinfo', {
             headers: {
                 Authorization: `Bearer ${access_token}`,
