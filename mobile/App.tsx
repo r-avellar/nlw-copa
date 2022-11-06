@@ -2,11 +2,8 @@ import { THEME } from './src/styles/theme';
 import { NativeBaseProvider, StatusBar } from "native-base";
 import { useFonts, Roboto_400Regular, Roboto_500Medium, Roboto_700Bold} from '@expo-google-fonts/roboto';
 import { Loading } from './src/components/Loading';
-import { SignIn } from './src/screens/SignIn';
-import { New } from './src/screens/New';
-import { Find } from './src/screens/Find';
-import { Polls } from './src/screens/Polls';
 import { AuthContextProvider } from './src/context/AuthContext';
+import { Routes } from './src/routes';
 
 export default function App() {
   const [fontLoaded] = useFonts({Roboto_400Regular, Roboto_500Medium, Roboto_700Bold})
@@ -20,7 +17,7 @@ export default function App() {
         translucent
       />
 
-      { fontLoaded ? <SignIn /> :  <Loading /> }
+      { fontLoaded ? <Routes /> :  <Loading /> }
       </AuthContextProvider> 
     </NativeBaseProvider>
   );
